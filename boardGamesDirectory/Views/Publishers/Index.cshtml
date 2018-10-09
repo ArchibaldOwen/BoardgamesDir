@@ -1,0 +1,58 @@
+﻿@model IEnumerable<BoardGamesDirectory.Models.Publisher>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>The Game Makers</h2>
+
+<p>
+    <button class="btn btn-outline-primary"> @Html.ActionLink("Add a new Publisher", "Create")</button>
+</p>
+<table class="table">
+    <tr>
+       
+        <th>
+
+        </th>
+         <th>
+            @Html.DisplayNameFor(model => model.PublisherName)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.PublisherDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nationality)
+        </th>
+        <th>
+           
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <a href="@Url.Action("Details", new { id = item.PublisherId })">
+                <img src="@Html.DisplayFor(modelItem => item.PublisherImg)" height="100" />
+            </a>
+        </td>
+         <td>
+            @Html.ActionLink(item.PublisherName, "Details", new { id = item.PublisherId })
+        </td>       
+        <td>
+            @Html.DisplayFor(modelItem => item.PublisherDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nationality)
+        </td>
+        <td>
+           <a href="@Html.DisplayFor(modelItem => item.Website)"> Website </a>
+        </td>
+      
+       
+    </tr>
+}
+
+</table>

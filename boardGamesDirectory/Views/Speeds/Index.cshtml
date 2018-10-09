@@ -1,0 +1,55 @@
+﻿@model IEnumerable<BoardGamesDirectory.Models.Speed>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Games for All Speeds</h2>
+
+<p>
+    <button class="btn btn-outline-primary"> @Html.ActionLink("Add a new Speed", "Create")</button>
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.SpeedName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SpeedDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MinTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxTime)
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <a href="@Url.Action("Details", new { id = item.SpeedId })">
+                <img src="@Html.DisplayFor(modelItem => item.SpeedImg)" height="100" />
+            </a>
+        </td>
+
+        <td>
+            @Html.ActionLink(item.SpeedName, "Details", new { id = item.SpeedId })
+        </td> 
+        <td>
+            @Html.DisplayFor(modelItem => item.SpeedDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MinTime) mins
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxTime) mins
+        </td>
+        
+       
+    </tr>
+}
+
+</table>

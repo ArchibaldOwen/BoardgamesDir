@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7c7085d1b44a4247a0d15cfefef099ff" Name="Diagram1">
+        <EntityTypeShape EntityType="BoardGamesDBMk3Model.Category" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoardGamesDBMk3Model.Game" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoardGamesDBMk3Model.Publisher" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoardGamesDBMk3Model.Speed" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoardGamesDBMk3Model.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="BoardGamesDBMk3Model.FK_Game_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="BoardGamesDBMk3Model.FK_Game_Publisher" ManuallyRouted="false" />
+        <AssociationConnector Association="BoardGamesDBMk3Model.FK_Game_Speed" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

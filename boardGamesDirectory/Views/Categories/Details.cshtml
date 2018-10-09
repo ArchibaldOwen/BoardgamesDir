@@ -1,0 +1,29 @@
+﻿@model BoardGamesDirectory.Models.Category
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    @Html.DisplayFor(model => model.CategoryDescription)
+
+    <h4>Games in this Category:</h4>
+
+    <div class="row col-12">
+        @foreach (var item in Model.Games)
+        {
+            <div class="col-md-4 text-center">
+                 <img class="pageImage" src="@Html.DisplayFor(modelItem => item.CoverImg)" height="100" />
+                <br /><br />
+                <p> <a class="btn btn-outline-primary" href="/Games/Details/@item.GameId">@item.GameName</a></p>
+              </div>
+        }
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CategoryId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

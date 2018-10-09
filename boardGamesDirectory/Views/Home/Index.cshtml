@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h4 class="welcome">Welcome to the Board Games Directory, this website is designed to help you find the right board game for any occasion, please see the options below to get started! If your favorite game isn't in the directory feel free to add it so other people can discover it. </h4>
+<br />
+
+<div class="col-sm-12">
+
+    <div class="col-sm-3">
+        <a href="@Url.Action("Index", "Games")">
+            <img src="~/Content/AllGames.jpg" class="frontpageImg" />
+        </a>
+      
+        <p class="caption btn "> @Html.ActionLink("Just want to take a look around? Click here to see all the games in the directory.", "Index", "Games")</p>
+    </div>
+    
+    <div class="col-sm-3">
+        <a href="@Url.Action("Index", "Categories")">
+            <img src="~/Content/AllCategories.jpg" class="frontpageImg" />
+        </a>
+        <p class="caption btn">
+            
+            @Html.ActionLink("Looking for a particular type of game? Click here to see our categories.", "Index", "Categories")
+        </p>
+        
+    </div>
+    
+    <div class="col-sm-3">
+        <a href="@Url.Action("Index", "Publishers")">
+            <img src="~/Content/AllPublishers.jpeg" class="frontpageImg" />
+        </a>
+        <p class="caption btn">
+            @Html.ActionLink("Want more from your favorite game maker? Click here to see the publishers in the directory.", "Index", "Publishers")
+        </p>
+    </div>
+    
+    <div class="col-sm-3">
+        <a href="@Url.Action("Index", "Speeds")">
+            <img src="~/Content/AllSpeeds.jpg" class="frontpageImg" />
+        </a>
+        <p class="caption btn">
+            @Html.ActionLink(" Maybe you're looking to fill a particular timeslot? Click here to find the right speed!.", "Index", "Speeds")
+        </p>
+    </div>
+
+</div>

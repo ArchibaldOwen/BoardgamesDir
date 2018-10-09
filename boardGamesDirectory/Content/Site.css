@@ -1,0 +1,213 @@
+﻿
+/* Color Palette
+rgb(219, 233, 216) Pale Green
+rgb(194, 212, 216) Iron Blue - Nav
+rgb(242, 239, 232) Off White - Body
+rgb(176, 170, 194) Muted Purple
+rgb(84, 84, 84) Dark Grey - Nav Text
+*/
+
+*{
+    font-family: 'Roboto Slab', serif;
+}
+
+body {
+    padding-top: 5px;
+    padding-bottom: 20px;
+    background-color: rgb(242, 239, 232);
+}
+
+footer {
+    text-align: center;
+  
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 400px;
+}
+
+.welcome {
+    text-align:center;
+}
+
+.frontpageImg {
+    border: solid 5px rgb(176, 170, 194);
+    border-radius: 5px;
+    height: auto;
+    width: 100%;
+}
+
+.caption {
+    text-align: center;
+    background-color: rgb(219, 233, 216);
+    border: solid 5px rgb(176, 170, 194);
+    border-radius: 5px;
+    margin-top: 5px;
+    white-space: normal!important;
+   
+}
+
+.navbar {
+    background-color: rgb(194, 212, 216);
+}
+
+.navbar, li, a {
+    color: rgb(84, 84, 84) !important;
+    font-weight: bold;
+}
+
+.navbar, li, a:hover {
+ text-decoration: none;
+}
+
+
+.btn-outline-primary {
+    background-color: rgb(219, 233, 216);
+    border-color: rgb(48, 0, 50);
+      font-weight: bold !important;
+}
+
+    .btn-outline-primary a { 
+        color: rgb(84, 84, 84) !important;
+        text-decoration: none;
+    }
+
+    .btn-outline-primary, input { 
+        color: rgb(84, 84, 84) !important;
+        text-decoration: none;
+    }
+
+     .btn-outline-primary:hover {
+       background-color: rgb(207, 207, 207);
+        text-decoration: none;
+    }
+
+.btn-group {
+    margin: 1em 0;
+    float: right;
+  
+}
+
+.navbar-brand {
+    margin: 6px 0;    
+}
+
+.nav-icon-con{
+    padding-right:0!important;
+}
+
+.nav-icon {
+    height: 6rem;
+   float: right;
+}
+
+.coverImg {
+    height: 100px;
+  
+}
+
+.coverImgCont {
+   display: flex;
+   justify-content: center;
+}
+
+.tableCenter {
+    text-align: center;
+}
+
+input{
+    border-radius: 5px;
+    border: 1px solid rgb(176, 170, 194);
+    min-height: 26px;
+    }
+
+.topNav {
+    font-weight: bold;
+}
+
+.title {
+    margin-top: 0;
+    font-weight: bold;
+}
+
+.gameList {
+    text-align: left!important;
+    width: 140px!important;
+}
+
+.gameListCont {
+    
+    margin-left: 140px!important;
+}
+.sidebar {
+    font-weight: bold;
+}
+
+.close {
+    opacity: .5;
+}
+
+.close:hover {
+    opacity: .75;
+}
+
+.modal-img {
+    width: inherit!important;
+    padding-right: 30px;
+}
+
+.modal-header {
+    background-color: rgb(194, 212, 216);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.modal-body {
+    width: inherit!important;
+}
+
+
+.modal-footer {
+   padding: 10px;
+}
+
+
+.modal-content {
+    width: inherit!important;
+}
+
+.btn-info {
+    background-color: rgb(176, 170, 194);
+    border-color: rgb(219, 233, 216);
+}
+
+.btn-info:hover, .btn-info:active, .btn-info:focus {
+    background-color: rgb(154, 149, 168);
+    border-color: rgb(219, 233, 216);
+}
+
+
+.descBox {
+        min-height: 100px!important;
+    }
+
+.form-control {
+    display: inline-block;
+}

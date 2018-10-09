@@ -1,0 +1,73 @@
+﻿@model BoardGamesDirectory.Models.Speed
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2> Speedy Details</h2>
+
+<div>
+    <h4>Speed</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SpeedName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpeedName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SpeedDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpeedDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MinTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MinTime) mins
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxTime) mins
+        </dd>
+
+       
+
+    </dl>
+</div>
+<div>
+
+
+    <h4>Games at this speed:</h4>
+
+    <div class="row col-12">
+        @foreach (var item in Model.Games)
+        {
+
+            <div class="col-md-4 text-center" >
+                
+                      <img class="pageImage" src="@Html.DisplayFor(modelItem => item.CoverImg)" height="100" />
+                    @* SCROLLS? *@
+             <br /><br />
+                <p>   <a class="btn btn-outline-primary" href="/Games/Details/@item.GameId">@item.GameName</a></p>
+                  
+            </div>
+        }
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SpeedId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

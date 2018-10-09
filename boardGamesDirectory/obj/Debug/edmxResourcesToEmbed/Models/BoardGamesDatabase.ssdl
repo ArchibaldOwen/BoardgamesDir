@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BoardGamesDBMk3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="varchar(max)" Nullable="false" />
+    <Property Name="CategoryDescription" Type="varchar(max)" Nullable="false" />
+    <Property Name="CategoryImg" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Game">
+    <Key>
+      <PropertyRef Name="GameId" />
+    </Key>
+    <Property Name="GameId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GameName" Type="varchar(max)" Nullable="false" />
+    <Property Name="GameDescription" Type="varchar(max)" Nullable="false" />
+    <Property Name="Published" Type="int" />
+    <Property Name="MaxPlayers" Type="int" />
+    <Property Name="MinPlayers" Type="int" />
+    <Property Name="MaxAge" Type="int" />
+    <Property Name="MinAge" Type="int" />
+    <Property Name="WebLink" Type="varchar(max)" />
+    <Property Name="CoverImg" Type="varchar(max)" />
+    <Property Name="GmplayImgOne" Type="varchar(max)" />
+    <Property Name="GmplayImgTwo" Type="varchar(max)" />
+    <Property Name="GmplayImgThree" Type="varchar(max)" />
+    <Property Name="PublisherId" Type="int" Nullable="false" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="SpeedId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Publisher">
+    <Key>
+      <PropertyRef Name="PublisherId" />
+    </Key>
+    <Property Name="PublisherId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PublisherName" Type="varchar(max)" Nullable="false" />
+    <Property Name="PublisherDescription" Type="varchar(max)" Nullable="false" />
+    <Property Name="Nationality" Type="varchar(max)" />
+    <Property Name="Website" Type="varchar(max)" />
+    <Property Name="PublisherImg" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Speed">
+    <Key>
+      <PropertyRef Name="SpeedId" />
+    </Key>
+    <Property Name="SpeedId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SpeedName" Type="varchar(max)" Nullable="false" />
+    <Property Name="SpeedDescription" Type="varchar(max)" Nullable="false" />
+    <Property Name="MinTime" Type="int" Nullable="false" />
+    <Property Name="MaxTime" Type="int" Nullable="false" />
+    <Property Name="SpeedImg" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Game_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Game" Type="Self.Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Game_Publisher">
+    <End Role="Publisher" Type="Self.Publisher" Multiplicity="1" />
+    <End Role="Game" Type="Self.Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Publisher">
+        <PropertyRef Name="PublisherId" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="PublisherId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Game_Speed">
+    <End Role="Speed" Type="Self.Speed" Multiplicity="1" />
+    <End Role="Game" Type="Self.Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Speed">
+        <PropertyRef Name="SpeedId" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="SpeedId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BoardGamesDBMk3ModelStoreContainer">
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Publisher" EntityType="Self.Publisher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Speed" EntityType="Self.Speed" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Game_Category" Association="Self.FK_Game_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Game" EntitySet="Game" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Game_Publisher" Association="Self.FK_Game_Publisher">
+      <End Role="Publisher" EntitySet="Publisher" />
+      <End Role="Game" EntitySet="Game" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Game_Speed" Association="Self.FK_Game_Speed">
+      <End Role="Speed" EntitySet="Speed" />
+      <End Role="Game" EntitySet="Game" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

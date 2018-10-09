@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Board Games Directory</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+      @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar container ">
+       <div class="col-md-12"></div>
+        <div class="col-md-1 nav-icon-con"><img src="~/Content/chessHeader.png" class="nav-icon" /></div>
+         <div class="col-md-6 navbar-brand">
+
+             @Html.ActionLink("Board Games Directory", "Index", "Home")
+            </div>
+        <div class="col-md-5">
+            <p class="btn-group">
+                @Html.ActionLink("Games", "Index", "Games", null, new { @class = "btn btn-default btn-outline-primary" })
+                @Html.ActionLink("Categories", "Index", "Categories", null, new { @class = "btn btn-default btn-outline-primary" })
+                @Html.ActionLink("Speeds", "Index", "Speeds", null, new { @class = "btn btn-default btn-outline-primary" })
+                @Html.ActionLink("Publishers", "Index", "Publishers", null, new { @class = "btn btn-outline-primary btn-default" })
+            </p>
+            </div>
+        
+        </div>
+   
+        <div class="container body-content">
+            @RenderBody()
+           
+            
+        </div>
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Archibald Owen</p>
+    </footer>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+</body>
+</html>

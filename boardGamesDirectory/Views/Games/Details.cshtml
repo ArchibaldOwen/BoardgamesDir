@@ -1,0 +1,145 @@
+﻿@model BoardGamesDirectory.Models.Game
+@{
+    ViewBag.Title = @Html.DisplayFor(model => model.GameName);
+}
+
+
+<div class="row col-12">
+
+    <div class="col-md-3">
+        <dl>
+            <dd>
+                <img src="@Html.DisplayFor(model => model.CoverImg)" height="200" />
+            </dd>
+        </dl>
+    </div>
+
+    <div class="col-md-6">
+
+        <h2 class="title"> @Html.DisplayFor(model => model.GameName)</h2>
+
+        @Html.DisplayFor(model => model.GameDescription)
+        
+
+    </div>
+
+    <div class="col-md-3">
+        <h4 class="sidebar">Game Details</h4>
+        <dl class="dl-horizontal">
+            <dt class="gameList">
+                Category:
+
+            </dt>
+
+            <dd class="gameListCont">
+                <a href="/Categories/Details/@Model.CategoryId">@Html.DisplayFor(model => model.Category.CategoryName)</a>
+
+            </dd>
+            <dt class="gameList">
+                Speed:
+            </dt>
+
+            <dd class="gameListCont">
+                <a href="/Speeds/Details/@Model.SpeedId">@Html.DisplayFor(model => model.Speed.SpeedName)</a>
+
+            </dd>
+            <dt class="gameList">
+                Publisher:
+            </dt>
+
+            <dd class="gameListCont">
+                <a href="/Publishers/Details/@Model.PublisherId">@Html.DisplayFor(model => model.Publisher.PublisherName)</a>
+
+            </dd>
+                       
+            <dt class="gameList">
+                @Html.DisplayNameFor(model => model.MaxPlayers):
+            </dt>
+
+            <dd class="gameListCont">
+                @Html.DisplayFor(model => model.MaxPlayers)
+            </dd>
+
+            <dt class="gameList">
+                @Html.DisplayNameFor(model => model.MinPlayers):
+            </dt>
+
+            <dd class="gameListCont">
+                @Html.DisplayFor(model => model.MinPlayers)
+            </dd>
+            <dt class="gameList">
+                @Html.DisplayNameFor(model => model.MinAge):
+            </dt>
+
+            <dd class="gameListCont">
+                @Html.DisplayFor(model => model.MinAge)
+            </dd>
+
+            <dt class="gameList">
+                @Html.DisplayNameFor(model => model.Published):
+            </dt>
+
+            <dd class="gameListCont">
+                @Html.DisplayFor(model => model.Published)
+            </dd>
+            <dt>
+                <a href="@Html.DisplayFor(model => model.WebLink)"> Official Product Website</a>
+            </dt>
+
+        </dl>
+    </div>
+</div>
+
+
+
+<h4 class="sidebar"> Image Gallery</h4>
+
+<div class="row col-6">
+    @* Modal *@
+    <img src="@Html.DisplayFor(model => model.GmplayImgOne)" height="100" data-toggle="modal" data-target="#galModOne" />
+    
+    <div class="modal fade" id="galModOne" tabindex="-1" role="dialog" aria-labelledby="galModLabelOne" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              
+                <div class="modal-body Gmplay-section">
+                    <img src="@Html.DisplayFor(model => model.GmplayImgOne)" class="modal-img"  />
+                </div>
+
+            </div>
+        </div>
+    </div>
+    &nbsp;
+    <img src="@Html.DisplayFor(model => model.GmplayImgTwo)" height="100" data-toggle="modal" data-target="#galModTwo" />
+    <div class="modal fade" id="galModTwo" tabindex="-1" role="dialog" aria-labelledby="galModLabelTwo" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-body Gmplay-section">
+                    <img src="@Html.DisplayFor(model => model.GmplayImgTwo)" class="modal-img" />
+                </div>
+
+            </div>
+        </div>
+    </div>
+    &nbsp;
+    <img src="@Html.DisplayFor(model => model.GmplayImgThree)" height="100" data-toggle="modal" data-target="#galModThree" />
+    <div class="modal fade" id="galModThree" tabindex="-1" role="dialog" aria-labelledby="galModLabelThree" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-body Gmplay-section">
+                    <img src="@Html.DisplayFor(model => model.GmplayImgThree)" class="modal-img" />
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </div>
+<br />
+<p>
+    @Html.ActionLink("Edit Game", "Edit", new { id = Model.GameId }) |
+    @Html.ActionLink("Delete Game", "Delete", new { id = Model.GameId }) |
+    @Html.ActionLink("Back to Games", "Index")
+</p>
+

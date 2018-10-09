@@ -1,0 +1,71 @@
+﻿
+@model IEnumerable<BoardGamesDirectory.Models.Game>
+
+@{
+    ViewBag.Title = "All Games";
+}
+
+<h2>All Games</h2>
+
+<div class="topNav">
+
+    @using (Html.BeginForm())
+    {
+        <p>
+            Name: &nbsp; @Html.TextBox("GameSearch") &nbsp;&nbsp;
+            <input class="btn btn-outline-primary" type="submit" value="Search" /> &nbsp;&nbsp;
+            <button class="btn btn-outline-primary"> @Html.ActionLink("Add a new Game", "Create")</button>
+        </p>
+    }
+    
+   
+</div>
+
+<table class="table">
+    <tr>
+        <th></th>
+        <th class="tableCenter">
+            @Html.DisplayNameFor(model => model.GameName)
+        </th>
+        <th> @Html.DisplayNameFor(model => model.GameDescription)</th>
+        <th class="tableCenter">
+            Category
+        </th>
+        <th class="tableCenter">
+            Publisher
+        </th>
+        <th class="tableCenter">
+            Speed
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td class="coverImgCont">
+                <a href="@Url.Action("Details", new { id = item.GameId })">
+                    <img src="@Html.DisplayFor(modelItem => item.CoverImg)" class="coverImg" />
+                </a>
+            </td>
+            <td class="tableCenter">
+                @Html.ActionLink(item.GameName, "Details", new { id = item.GameId })
+            </td>
+            <td>
+               @Html.Raw((item.GameDescription.Length > 300 ? item.GameDescription.Substring(0, 300) : item.GameDescription))....
+            </td>
+            <td class="tableCenter">
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+            </td>
+            <td class="tableCenter">
+                @Html.DisplayFor(modelItem => item.Publisher.PublisherName)
+            </td>
+            <td class="tableCenter">
+                @Html.DisplayFor(modelItem => item.Speed.SpeedName)
+            </td>
+
+        </tr>
+    }
+
+</table>

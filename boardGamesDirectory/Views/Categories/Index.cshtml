@@ -1,0 +1,42 @@
+﻿@model IEnumerable<BoardGamesDirectory.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Categories</h2>
+
+<p>
+    <button class="btn btn-outline-primary"> @Html.ActionLink("Add a new Category", "Create")</button>
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryDescription)
+        </th>
+       
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <a href="@Url.Action("Details", new { id = item.CategoryId })">
+                <img src="@Html.DisplayFor(modelItem => item.CategoryImg)" height="100" />
+            </a>
+        </td>
+        <td>
+        @Html.ActionLink(item.CategoryName, "Details", new { id = item.CategoryId })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryDescription)
+        </td>
+       
+      
+    </tr>
+}
+
+</table>

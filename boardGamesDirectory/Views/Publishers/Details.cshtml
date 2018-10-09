@@ -1,0 +1,68 @@
+﻿@model BoardGamesDirectory.Models.Publisher
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row col-md-12">
+    <div class="col-md-4">
+        <img src="@Html.DisplayFor(model => model.PublisherImg)" height="200" />
+    </div>
+    <div class="col-md-8">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.PublisherName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PublisherName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PublisherDescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PublisherDescription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Nationality)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nationality)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Website)
+            </dt>
+
+            <dd>
+              <a href="@Html.DisplayFor(model => model.Website)">@Html.DisplayFor(model => model.Website)</a>
+            </dd>
+        </dl>
+    </div>
+</div>
+<div>
+   
+
+    <h4>Games by this publisher:</h4>
+
+    <div class="row col-12">
+        @foreach (var item in Model.Games)
+        {
+            <div class="col-md-4 text-center">
+                <img class="pageImage" src="@Html.DisplayFor(modelItem => item.CoverImg)" height="100" />
+               <br /><br />
+                <p>       <a class="btn btn-outline-primary" href="/Games/Details/@item.GameId">@item.GameName</a></p>
+               
+                </div>
+        }
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PublisherId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
